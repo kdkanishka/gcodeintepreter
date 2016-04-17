@@ -44,7 +44,8 @@ public class GcodeSurface extends JPanel {
                 if (GCodeUtils.isPenDown(gcode)) {
                     g2d.setPaint(Color.BLUE);
                 } else {
-                    g2d.setPaint(Color.WHITE);
+                    Color c = new Color(0.1f, 0.1f, 0.1f, 0f);
+                    g2d.setPaint(c);
                 }
             }
 

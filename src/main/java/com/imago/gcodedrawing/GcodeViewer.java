@@ -95,7 +95,7 @@ public class GcodeViewer extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jList1);
 
-        jButton4.setText("Timer");
+        jButton4.setText("Simulate");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -171,6 +171,7 @@ public class GcodeViewer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //        List<String> gcodeLines = readGcodeFile("/home/kanishka/Desktop/drawing1.gcode");
+        initialize(jTextField1.getText());
         loadGcodeList(gc);
         jPanel1.add(surface);
         surface.setSize(jPanel1.getWidth(), jPanel1.getHeight());
@@ -187,7 +188,7 @@ public class GcodeViewer extends javax.swing.JFrame {
         int selectedIndex = jList1.getSelectedIndex();
 
         try {
-            List<String> gcodeLines = readGcodeFile("/home/kanishka/Desktop/drawing1.gcode");
+            List<String> gcodeLines = readGcodeFile(jTextField1.getText());
 
             surface.setGcodeList(gcodeLines.subList(0, selectedIndex));
             surface.setSize(jPanel1.getWidth(), jPanel1.getHeight());
@@ -222,7 +223,7 @@ public class GcodeViewer extends javax.swing.JFrame {
                     defaultListModel.addElement(gc.get(i));
                     jList1.ensureIndexIsVisible(i);
 
-                    System.out.println(gc.get(i));
+//                    System.out.println(gc.get(i));
 
                     surface.setGcodeList(gc.subList(0, i));
                     surface.setSize(jPanel1.getWidth(), jPanel1.getHeight());
